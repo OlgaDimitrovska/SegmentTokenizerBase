@@ -37,6 +37,14 @@
      </dependency> 
      
      <dependency>
+		<groupId>eus.ixa</groupId>
+		<artifactId>ixa-pipe-nerc</artifactId>
+		<version>1.5.2</version>
+	 </dependency>
+
+     
+     
+     <dependency>
     	<groupId>org.apache.poi</groupId>
     	<artifactId>poi-ooxml</artifactId>
    	 	<version>3.9</version>

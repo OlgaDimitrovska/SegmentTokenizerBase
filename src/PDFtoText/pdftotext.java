@@ -14,7 +14,7 @@ public class pdftotext {
 	public static void main(String[] args) throws IOException {
 		// TODO Auto-generated method stub
 		
-		  File file = new File("D:\\Stecajni postapki 2018\\SLU@BEN VESNIK NA RM br. 1-STE^AJNI POSTAPKI.pdf");
+		  File file = new File("D:\\Stecajni postapki 2018\\SLU@BEN VESNIK NA RM br. 4-STE^AJNI POSTAPKI.pdf");
 	      PDDocument document = PDDocument.load(file);
 
 	      //Instantiate PDFTextStripper class

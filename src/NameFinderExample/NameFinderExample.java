@@ -4,8 +4,12 @@ import java.io.ByteArrayInputStream;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
+import java.io.PrintWriter;
 import java.nio.charset.Charset;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Paths;
@@ -34,11 +38,19 @@ import org.elasticsearch.common.xcontent.ObjectParser.ValueType;
 
 import com.google.common.base.Charsets;
 import com.google.common.io.Files;
+import com.itextpdf.awt.geom.Rectangle;
+import com.itextpdf.*;
+import com.itextpdf.text.pdf.PdfReader;
+import com.itextpdf.text.pdf.parser.PdfTextExtractor;
+import com.itextpdf.text.pdf.parser.RegionTextRenderFilter;
+import com.itextpdf.text.pdf.parser.RenderFilter;
+import com.itextpdf.text.pdf.parser.TextExtractionStrategy;
 
 import PDFtoText.pdftotext;
 
 import org.apache.poi.xssf.*;
 import org.apache.poi.xssf.usermodel.*;
+import org.mozilla.universalchardet.UniversalDetector;
 
 public class NameFinderExample {
 	
@@ -80,16 +92,41 @@ public class NameFinderExample {
 		
 		  
 	          
-		  File file = new File("D:\\Stecajni postapki 2018\\SLU@BEN VESNIK NA RM br. 1-STE^AJNI POSTAPKI.pdf");
+		  File file = new File("D:\\Stecajni postapki 2018\\SLU@BEN VESNIK NA RM br. 4-STE^AJNI POSTAPKI.pdf");
+		 /* File txt= new File("D:\\Stecajni postapki 2018\\outFile.txt");
+		  
+		  PdfReader reader = new PdfReader("D:\\Stecajni postapki 2018\\SLU@BEN VESNIK NA RM br. 1-STE^AJNI POSTAPKI.pdf");
+		  PrintWriter out = new PrintWriter(new FileOutputStream(txt));
+		  Rectangle rect = new Rectangle(70, 80, 420, 500);
+		  RenderFilter filter = new RegionTextRenderFilter(rect);
+		  TextExtractionStrategy strategy;
+		  for (int i = 1; i <= reader.getNumberOfPages(); i++) {
+		       strategy = new FilteredTextRenderListener(
+		       new LocationTextExtractionStrategy(), filter);
+		       out.println(PdfTextExtractor.getTextFromPage(reader, i, strategy));
+		  }
+		  out.flush();
+		  out.close();
+		  
+		  */
+		  
 	      PDDocument document = PDDocument.load(file);
  
 	      PDFTextStripper pdfStripper = new PDFTextStripper();
 
 	      String text = pdfStripper.getText(document);
+	      
+	      //FileInputStream fis = new FileInputStream(file);
+	      
+	      //System.out.println(text);
 
 	      document.close();
+	      
+	      
+	       return text;
+	      
 	     
-	      return text;
+	     
 
 	}
 	
@@ -110,7 +147,7 @@ public class NameFinderExample {
 	public static LinkedHashMap<String, String> find(String content) throws IOException {
 	    
 	
-	    	InputStream is= new  FileInputStream("D:\\JavaNlpMk\\ner-custom-model.bin");
+	    	InputStream is= new  FileInputStream("D:\\JavaNlpMk\\mk ner modeli statusi stecai\\predstecajni-ner-model.bin");
 			 
 			TokenNameFinderModel model = new TokenNameFinderModel(is);
 		    is.close();

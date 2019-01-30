@@ -25,5 +25,7 @@
 	<classpathentry kind="lib" path="C:/Users/olgad/Downloads/poi-bin-4.0.0-20180907/poi-4.0.0/poi-ooxml-schemas-4.0.0.jar"/>
 	<classpathentry kind="lib" path="C:/Users/olgad/Downloads/poi-bin-4.0.0-20180907/poi-4.0.0/poi-scratchpad-4.0.0.jar"/>
 	<classpathentry kind="lib" path="D:/2017 изданија/Microsoft JDBC Driver 7.0 for SQL Server/sqljdbc_7.0/enu/mssql-jdbc-7.0.0.jre8.jar"/>
+	<classpathentry kind="lib" path="D:/2017 изданија/juniversalchardet-1.0.3.jar"/>
+	<classpathentry kind="lib" path="D:/2017 изданија/jar_files/itextpdf-5.2.1.jar"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>
